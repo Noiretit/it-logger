@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
 
-const AddLogModal = () => {
+const EditLogModal = () => {
     const [message, setMessage] = useState('');
     const [attention, setAttention] = useState(false);
     const [tech, setTech] = useState('');
@@ -20,8 +20,8 @@ const AddLogModal = () => {
     };
 
     return (
-        // This ID has to match the href of AddBtn, so when clicked it will open this
-        <div id='add-log-modal' className="modal" style={modalStyle}> 
+        // This modal is opened when user clicks on any log (LogItem.js, line 10)
+        <div id='edit-log-modal' className="modal" style={modalStyle}> 
             <div className="modal-content">
                 <h4>Enter system log</h4>
                 <div className="row">
@@ -90,4 +90,4 @@ const modalStyle = {
     height: '75%'
 }
 
-export default AddLogModal
+export default EditLogModal

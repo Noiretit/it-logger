@@ -3,6 +3,7 @@ import React from 'react'
 const AddBtn = () => {
     return (
         <div className="fixed-action-btn">
+            {/* This HREF has to match the ID of the popup to open, at AddLogModal.js */}
             <a href="#add-log-modal" className="btn-floating btn-large blue darken-2 modal-trigger">
                 <i className="large material-icons">add</i>
             </a>

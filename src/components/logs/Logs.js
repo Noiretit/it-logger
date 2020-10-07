@@ -1,27 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+// Connects redux to this perticular component, which has to be exported as a second parameter to this function
+import { connect } from 'react-redux'
 import LogItem from './LogItem';
 import Preloader from '../layout/Preloader';
+import PropTypes from 'prop-types';
+import { getLogs } from '../../actions/logActions'
 
-const Logs = () => {
-    const [logs, setLogs] = useState([]);
-    const [loading, setLoading] = useState(false);
-
+// If there is any method to fire off, you pass it as a parameter and... (export part)
+const Logs = ({ log: { logs, loading }, getLogs }) => {
+    
     useEffect(() => {
         getLogs();
         //eslint-disable-next-line
     }, []);
     //We add an empty array to it only runs ONCE
 
-    const getLogs = async () => {
-        setLoading(true);
-        const res = await fetch('/logs');
-        const data = await res.json();
-
-        setLogs(data);
-        setLoading(false);
-    };
-
-    if(loading) {
+    if(loading || logs === null) {
         return <Preloader/>
     }
 
@@ -37,6 +31,17 @@ const Logs = () => {
             </ul>
         </div>
     )
+};
+
+Logs.propTypes = {
+    log: PropTypes.object.isRequired,
 }
 
-export default Logs
+// Function to bring anything from the upper state
+const mapStateToProps = state => ({
+    // "Name of the prop": "name of the reducer name at index.js [log: logReducer]"
+    log: state.log
+})
+
+// ...pass any methods as parameters
+export default connect(mapStateToProps, { getLogs })(Logs);

@@ -1,11 +1,11 @@
 {
   "logs": [
     {
-      "message": "Change password on Attic 01",
-      "attention": false,
+      "id": 1,
+      "message": "Change password on Attic 02",
+      "attention": true,
       "tech": "John Doe",
-      "date": "2020-10-07T14:12:05.878Z",
-      "id": 1
+      "date": "2020-10-08T09:31:01.511Z"
     },
     {
       "message": "Fix laptop charger 192",

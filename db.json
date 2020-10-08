@@ -15,11 +15,11 @@
       "id": 2
     },
     {
+      "id": 3,
       "message": "Change bulb lights from second floor",
       "attention": true,
-      "tech": "Sam Smith",
-      "date": "2020-10-07T14:12:55.734Z",
-      "id": 3
+      "tech": "Alejandro Colorado",
+      "date": "2020-10-08T12:20:29.874Z"
     }
   ],
   "techs": [
@@ -37,6 +37,16 @@
       "id": 3,
       "firstName": "Sara",
       "lastName": "Wilson"
+    },
+    {
+      "firstName": "Alejandro",
+      "lastName": "Colorado",
+      "id": 4
+    },
+    {
+      "firstName": "Jean Baptiste",
+      "lastName": "Castillo",
+      "id": 5
     }
   ]
 }

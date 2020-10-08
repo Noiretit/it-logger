@@ -2,7 +2,7 @@ import {
     GET_TECHS,
     ADD_TECH,
     DELETE_TECH,
-    TECHS_ERRORS,
+    TECHS_ERROR,
     SET_LOADING
  } from '../actions/types'
 
@@ -20,10 +20,25 @@ export default(state = initialState, action) => {
                 techs: action.payload,
                 loading: false
             };
+        case ADD_TECH:
+            return {
+                ...state,
+                // Set an array where we copy the current techs that are already there
+                // and add the new one with action.payload
+                techs: [...state.techs, action.payload],
+                loading: false
+            };
         case SET_LOADING:
             return {
                 ...state,
                 loading: true
+            };
+        case TECHS_ERROR:
+            console.error(action.payload);
+            return {
+                ...state,
+                error: action.payload,
+                loading: false
             }
         default: 
             return state;
